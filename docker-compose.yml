@@ -1,0 +1,10 @@
+services:
+  asset-viewer:
+    build: .
+    container_name: asset-viewer
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./models:/models:ro
+      - ./public/shaders:/app/public/shaders
+    restart: unless-stopped

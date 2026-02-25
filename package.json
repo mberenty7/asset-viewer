@@ -1,0 +1,12 @@
+{
+  "name": "asset-viewer",
+  "version": "1.0.0",
+  "description": "Web-based 3D asset viewer with custom GLSL shaders, depth/normal map capture, and multi-format support (GLB, GLTF, OBJ, FBX)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
