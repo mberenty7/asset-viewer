@@ -1,12 +1,13 @@
 {
   "name": "asset-viewer",
-  "version": "1.0.0",
-  "description": "Web-based 3D asset viewer with custom GLSL shaders, depth/normal map capture, and multi-format support (GLB, GLTF, OBJ, FBX)",
+  "version": "2.0.0",
+  "description": "Production asset tracker for generative-AI pipelines: ingests comfyui-canvas output + prompt provenance, browse projects/assets/versions, with an embedded 3D viewer.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
+    "better-sqlite3": "^12.11.1",
     "express": "^4.18.2"
   }
 }

@@ -3,76 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asset Viewer</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Asset Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+  <link rel="stylesheet" href="tracker.css">
 </head>
 <body>
-  <div id="viewer-container">
-    <canvas id="viewer"></canvas>
+  <div id="app">
+    <header>
+      <h1>🎬 Asset Tracker</h1>
+      <span class="stat" id="stat-line">—</span>
+      <span class="spacer"></span>
+      <input type="text" id="outdir" placeholder="comfyui-canvas output directory…" style="width:320px">
+      <button id="btn-save-dir" title="Save output directory">Save</button>
+      <button id="btn-scan" class="primary">⟳ Scan</button>
+      <a href="/viewer.html" style="margin-left:8px;font-size:13px;text-decoration:none">🎲 3D Viewer</a>
+    </header>
+
+    <div id="body">
+      <nav id="sidebar">
+        <h2>Projects</h2>
+        <div id="projects"></div>
+      </nav>
+
+      <main id="main">
+        <div id="breadcrumb"></div>
+        <div id="content"></div>
+      </main>
+    </div>
   </div>
 
-  <div id="sidebar">
-    <h1>🎂 Asset Viewer</h1>
-
-    <section id="model-section">
-      <h2>Models</h2>
-      <select id="model-select">
-        <option value="">— loading —</option>
-      </select>
-      <div id="model-info"></div>
-    </section>
-
-    <section id="shader-section">
-      <h2>Shader</h2>
-      <select id="shader-select">
-        <option value="fresnel">Fresnel</option>
-        <option value="toon">Toon</option>
-        <option value="holographic">Holographic</option>
-      </select>
-
-      <div id="shader-controls">
-        <label>Base Color <input type="color" id="ctrl-color" value="#808080"></label>
-        <label>Fresnel Power <input type="range" id="ctrl-fresnel" min="0.5" max="5" step="0.1" value="2.0"></label>
-        <label>Rim Color <input type="color" id="ctrl-rim" value="#ffffff"></label>
+  <div id="overlay">
+    <aside id="detail">
+      <div class="dhead">
+        <span class="title" id="detail-title">Version</span>
+        <button class="close" id="detail-close">✕ Close</button>
       </div>
-
-      <details>
-        <summary>Edit Vertex Shader</summary>
-        <textarea id="vert-editor" spellcheck="false"></textarea>
-      </details>
-      <details>
-        <summary>Edit Fragment Shader</summary>
-        <textarea id="frag-editor" spellcheck="false"></textarea>
-      </details>
-      <button id="apply-shader">Apply Shader</button>
-      <div id="shader-error"></div>
-    </section>
-
-    <section id="scene-section">
-      <h2>Scene</h2>
-      <label>Background <input type="color" id="ctrl-bg" value="#1a1a2e"></label>
-      <label>Auto-Rotate <input type="checkbox" id="ctrl-rotate"></label>
-      <label>Show Grid <input type="checkbox" id="ctrl-grid"></label>
-    </section>
-
-    <section id="capture-section">
-      <h2>Capture</h2>
-      <label>Resolution
-        <select id="capture-res">
-          <option value="1024">1024×1024</option>
-          <option value="896">896×1152</option>
-          <option value="512">512×512</option>
-          <option value="2048">2048×2048</option>
-        </select>
-      </label>
-      <button id="capture-depth">📷 Depth Map</button>
-      <button id="capture-depth4">📷 Depth 4-View</button>
-      <button id="capture-normal">📷 Normal Map</button>
-      <button id="capture-color">📷 Color Render</button>
-    </section>
+      <div class="dbody" id="detail-body"></div>
+    </aside>
   </div>
-
-  <div id="dropzone-overlay">Drop .glb / .gltf / .obj / .fbx file here</div>
 
   <script type="importmap">
   {
@@ -82,6 +50,6 @@
     }
   }
   </script>
-  <script type="module" src="app.js"></script>
+  <script type="module" src="tracker.js"></script>
 </body>
 </html>

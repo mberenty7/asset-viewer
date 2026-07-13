@@ -4,7 +4,12 @@ services:
     container_name: asset-viewer
     ports:
       - "127.0.0.1:3000:3000"
+    environment:
+      # Point at the comfyui-canvas output directory to auto-ingest on scan.
+      - OUTPUT_DIR=/outputs
     volumes:
       - ./models:/models:ro
       - ./public/shaders:/app/public/shaders
+      - ./data:/app/data                 # SQLite DB persists here
+      # - /path/to/comfyui-canvas/output:/outputs:ro   # mount your output dir
     restart: unless-stopped
