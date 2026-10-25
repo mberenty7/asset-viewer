@@ -45,29 +45,6 @@ volumes:
   - /path/to/your/models:/models:ro
 ```
 
-## RefBoard — infinite reference canvas (tablet friendly)
-
-`public/refboard/` is a separate, dependency-free PureRef-style reference board built for touch tablets (tested at Galaxy Tab A8 size), with tools for watercolor painting.
-
-- **Add from Dropbox** — **+ → Files & Dropbox** opens Android's file browser, where the Dropbox app appears in the side menu; or share photos from the Dropbox app with *Send a copy*
-- **Infinite canvas** — one finger pans, pinch zooms, double-tap fits everything / zooms to a photo
-- **Arrange photos** — drag to move; select then pinch-twist (or drag the corner handle) to resize and rotate; flip, layer, duplicate, lock
-- **Value studies** — per photo: Color → Gray → 3 values → 5 values (notan), based on perceptual lightness (CIE L\*)
-- **Grid overlay** — 3×3, 4×4 or 6×6 for transferring a drawing
-- **Squint mode** — blurs the board so you see the big shapes and masses
-- **Color picker** — touch a photo to read its hex color and value %; picks collect in a palette tray
-- **Painting mode** — locks every photo so a brushing hand can't move things; pan/zoom still work
-- **Keep screen awake**, fullscreen, three background tones (dark, mid gray, paper)
-- **Multiple boards**, saved on the device (IndexedDB); export/import a board as a single `.json` file for backup
-- **Installable PWA** that works offline, and appears in Android's share sheet so you can share images from the gallery, Chrome or Pinterest straight onto the board
-- Big photos are downscaled to 2048 px on import to stay light on tablet memory
-
-### Getting it onto the tablet
-
-**GitHub Pages (recommended):** in the repo's *Settings → Pages*, set *Source* to **GitHub Actions**. Every push to `main` that touches `public/refboard/` deploys it to `https://<user>.github.io/asset-viewer/`. On the tablet, open that URL in Chrome, then *⋮ → Add to Home screen → Install*.
-
-**Local server:** `node server.js` serves it at `http://<computer-ip>:3000/refboard/`. It works over plain HTTP on your Wi-Fi, but installing, offline use, keep-awake, clipboard paste and the share sheet need HTTPS, so use Pages for the full experience.
-
 ## Usage
 
 ### Loading Models
