@@ -49,6 +49,7 @@ volumes:
 
 `public/refboard/` is a separate, dependency-free PureRef-style reference board built for touch tablets (tested at Galaxy Tab A8 size), with tools for watercolor painting.
 
+- **Add from Dropbox** — **+ → Files & Dropbox** opens Android's file browser, where the Dropbox app appears in the side menu; or share photos from the Dropbox app with *Send a copy*
 - **Infinite canvas** — one finger pans, pinch zooms, double-tap fits everything / zooms to a photo
 - **Arrange photos** — drag to move; select then pinch-twist (or drag the corner handle) to resize and rotate; flip, layer, duplicate, lock
 - **Value studies** — per photo: Color → Gray → 3 values → 5 values (notan), based on perceptual lightness (CIE L\*)
